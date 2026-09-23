@@ -12,6 +12,8 @@ public class Adventure {
     private Room r8 = new Room("Room 8", "A dark cave with wet yet sandy floor");
     private Room r9 = new Room("Room 9", "A suspicous waterfall made of sand");
 
+    private Room currentRoom = r1;
+
     public Adventure(){
         setConnectionWestEast(r1, r2);
         setConnectionWestEast(r2, r3);
@@ -31,67 +33,70 @@ public class Adventure {
         n.setSouth(s);
         s.setNorth(n);
     }
+    public boolean moveToRoom(String direction) {
+        Room desiredRoom = switch (direction) {
+            case "go north", "north" -> currentRoom.getNorth();
+            case "go south", "south" -> currentRoom.getSouth();
+            case "go west", "west" -> currentRoom.getWest();
+            case "go east", "east" -> currentRoom.getEast();
+            default -> null;
+        };
+        if (desiredRoom != null) {
+            currentRoom = desiredRoom;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     static void main(String[] args) {
         Adventure a = new Adventure();
-      a.r1.setName("Room 1");
-      a.r2.setName("Room 2");
-      a.r3.setName("Room 3");
-      a.r4.setName("Room 4");
-      a.r5.setName("Room 5");
-      a.r6.setName("Room 6");
-      a.r7.setName("Room 7");
-      a.r8.setName("Room 8");
-      a.r9.setName("Room 9");
+        a.r1.setName("Room 1");
+        a.r2.setName("Room 2");
+        a.r3.setName("Room 3");
+        a.r4.setName("Room 4");
+        a.r5.setName("Room 5");
+        a.r6.setName("Room 6");
+        a.r7.setName("Room 7");
+        a.r8.setName("Room 8");
+        a.r9.setName("Room 9");
 
-      Room currentRoom = a.r1;
 
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("Where do you want to go?: ");
+            String command = scanner.nextLine().trim().toLowerCase();
 
-            public boolean moveToRoom(String direction) {
-            Room desiredRoom = switch (moveToRoom) {
-                case "go north", "north" -> {
-                    System.out.println("going north");
-                    currentRoom.getNorth();
-                }
-                case "go south", "south" -> {
-                    System.out.println("going south");
-                    currentRoom.getSouth();
-                }
-                case "go west", "west" -> {
-                    System.out.println("going west");
-                    currentRoom.getWest();
-                }
-                case "go east", "east" -> {
-                    System.out.println("going east");
-                    currentRoom.setEast();
+            switch (command) {
+                case "go north", "north",
+                     "go south", "south",
+                     "go west", "west",
+                     "go east", "east" -> {
+                    if (a.moveToRoom(command)) {
+                        System.out.println(a.currentRoom.getName());
+                        System.out.println(a.currentRoom.getDescription());
+                    } else {
+                        System.out.println("You cannot go that way");
+                    }
                 }
                 case "look" -> {
-                    System.out.println("looking around");
-                    System.out.println(currentRoom.getName());
-                    System.out.println(currentRoom.getDescription());
+                    System.out.println(a.currentRoom.getName());
+                    System.out.println(a.currentRoom.getDescription());
+                }
+                case "help" -> {
+                    System.out.println("Move: go north, go south, go west, go east");
+                    System.out.println("Look: Description of your current room");
+                    System.out.println("Help: Show commands");
+                    System.out.println("Exit: Quit the game");
                 }
                 case "exit" -> {
                     System.out.println("Exiting game");
                     return;
                 }
-                default -> {
-                    null;
-                    System.out.println("You cannot go that way");
-                };
-                if (desiredRoom != null) {
-                    currentRoom = desiredRoom;
-                    return true;
-                }
-                else {
-                    return false;
-                }
+                default -> System.out.println("Unknown command");
             }
-        }
         }
     }
 }
