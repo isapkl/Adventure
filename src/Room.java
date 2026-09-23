@@ -18,10 +18,36 @@ public class Room {
     public String getDescription(){
         return description;
     }
+    public void setName(String name){
+        this.name = name;
+    }
 
-    public void setNorth(Room room){
 
+    public void setNorth(Room north){
+        this.north = north;
     }
     public Room getNorth(){
+        return north;
+    }
+
+    public void setEast(Room east){
+        this.east = east;
+    }
+    public Room getEast(){
+        return east;
+    }
+
+    public void setSouth(Room south){
+        this.south = south;
+    }
+    public Room getSouth(){
+        return south;
+    }
+
+    public void setWest(Room west){
+        this.west = west;
+    }
+    public Room getWest(){
+        return west;
     }
 }
