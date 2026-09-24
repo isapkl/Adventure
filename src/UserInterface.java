@@ -1,27 +1,26 @@
 import java.util.Scanner;
 
 public class UserInterface {
-//    private Scanner scanner;
-//    private Adventure adventure;
+    private Scanner scanner;
     private Player player;
 
 
     public UserInterface(Player player) {
         this.player = player;
+        scanner = new Scanner(System.in);
     }
 
     public void startProgram() {
-        Scanner scanner = new Scanner(System.in);
-
+        Adventure adventure = new Adventure();
         while (true) {
             System.out.print("Where do you want to go?: ");
             String command = scanner.nextLine().trim().toLowerCase();
 
             switch (command) {
-                case "go north", "north",
-                     "go south", "south",
-                     "go west", "west",
-                     "go east", "east" -> {
+                case "go north", "north", "n",
+                     "go south", "south", "s",
+                     "go west", "west", "w",
+                     "go east", "east", "e" -> {
                     if (player.move(command)) {
                         System.out.println(player.getCurrentRoom().getName());
                         System.out.println(player.getCurrentRoom().getDescription());
@@ -30,14 +29,10 @@ public class UserInterface {
                     }
                 }
                 case "look" -> {
-                    System.out.println(player.getCurrentRoom().getName());
-                    System.out.println(player.getCurrentRoom().getDescription());
+                    adventure.look();
                 }
                 case "help" -> {
-                    System.out.println("Move: go north, go south, go west, go east");
-                    System.out.println("Look: Description of your current room");
-                    System.out.println("Help: Show commands");
-                    System.out.println("Exit: Quit the game");
+                    showHelp();
                 }
                 case "exit" -> {
                     System.out.println("Exiting game");
@@ -47,12 +42,12 @@ public class UserInterface {
             }
         }
     }
-//    public String parseInput(String command) {
-//        return command;
-//    }
-//
-//    public void showHelp(){
-//
-//    }
+
+    public void showHelp(){
+            System.out.println("Move: go north, go south, go west, go east");
+            System.out.println("Look: Description of your current room");
+            System.out.println("Help: Show commands");
+            System.out.println("Exit: Quit the game");
+    }
 
 }

@@ -1,9 +1,10 @@
-import java.util.Scanner;
-
 public class Adventure {
     private Player player;
     private Map map;
 
+    public String look(){
+        return player.getCurrentRoom().getDescription();
+    }
 
     public static void main(String[] args) {
         Map map = new Map();
@@ -11,5 +12,7 @@ public class Adventure {
 
         UserInterface ui = new UserInterface(player);
         ui.startProgram();
+
+
     }
 }
