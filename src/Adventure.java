@@ -6,16 +6,20 @@ public class Adventure {
         System.out.println(player.getCurrentRoom().getName());
         System.out.println(player.getCurrentRoom().getDescription());
     }
-    public Adventure(Player player) {
-        this.player = player;
-    }
 
     public void start() {
         map = new Map();
         player = new Player(map);
-        Adventure adventure = new Adventure(player);
 
-        UserInterface ui = new UserInterface(player, adventure);
+        UserInterface ui = new UserInterface(this);
         ui.startProgram();
+    }
+
+    public boolean movePlayer(String direction) {
+        return player.move(direction);
+    }
+
+    public Room getCurrentRoom(){
+        return player.getCurrentRoom();
     }
 }

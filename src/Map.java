@@ -32,17 +32,4 @@ public class Map {
     public Room getStartRoom() {
         return r1;
     }
-
-    static void main(String[] args) {
-        Map a = new Map();
-        a.r1.setName("Room 1");
-        a.r2.setName("Room 2");
-        a.r3.setName("Room 3");
-        a.r4.setName("Room 4");
-        a.r5.setName("Room 5");
-        a.r6.setName("Room 6");
-        a.r7.setName("Room 7");
-        a.r8.setName("Room 8");
-        a.r9.setName("Room 9");
-    }
 }

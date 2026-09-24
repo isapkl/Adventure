@@ -3,12 +3,10 @@ import java.util.Scanner;
 public class UserInterface {
     private Adventure adventure;
     private Scanner scanner;
-    private Player player;
 
 
-    public UserInterface(Player player, Adventure adventure) {
+    public UserInterface(Adventure adventure) {
         scanner = new Scanner(System.in);
-        this.player = player;
         this.adventure = adventure;
     }
 
@@ -23,9 +21,9 @@ public class UserInterface {
                      "go south", "south", "s",
                      "go west", "west", "w",
                      "go east", "east", "e" -> {
-                    if (player.move(command)) {
-                        System.out.println(player.getCurrentRoom().getName());
-                        System.out.println(player.getCurrentRoom().getDescription());
+                    if (adventure.movePlayer(command)) {
+                        System.out.println(adventure.getCurrentRoom().getName());
+                        System.out.println(adventure.getCurrentRoom().getDescription());
                     } else {
                         System.out.println("You cannot go that way");
                     }
@@ -37,7 +35,7 @@ public class UserInterface {
                     showHelp();
                 }
                 case "exit" -> {
-                    System.out.println("Exiting game");
+                    System.out.println("Goodbye!");
                     return;
                 }
                 default -> System.out.println("Unknown command");
@@ -46,7 +44,7 @@ public class UserInterface {
     }
 
     public void showHelp(){
-            System.out.println("To move type: go north, go south, go west, go east");
+            System.out.println("To move, type: go north, go south, go west, go east");
             System.out.println("Look: Description of your current room");
             System.out.println("Help: Show commands");
             System.out.println("Exit: Quit the game");
