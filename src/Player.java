@@ -12,14 +12,18 @@ public class Player {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+//    public void printRoomInfo(){
+//        System.out.println(getCurrentRoom().getName());
+//        System.out.println(getCurrentRoom().getDescription());
+//    }
 
 
     public boolean move(String direction) {
         Room desiredRoom = switch (direction) {
-            case "go north", "north" -> currentRoom.getNorth();
-            case "go south", "south" -> currentRoom.getSouth();
-            case "go west", "west" -> currentRoom.getWest();
-            case "go east", "east" -> currentRoom.getEast();
+            case "go north", "north", "n" -> currentRoom.getNorth();
+            case "go south", "south", "s" -> currentRoom.getSouth();
+            case "go west", "west", "w" -> currentRoom.getWest();
+            case "go east", "east", "e" -> currentRoom.getEast();
             default -> null;
         };
         if (desiredRoom != null) {
