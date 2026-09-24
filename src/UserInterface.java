@@ -6,12 +6,12 @@ public class UserInterface {
 
 
     public UserInterface(Player player) {
-        this.player = player;
         scanner = new Scanner(System.in);
+        this.player = player;
     }
 
     public void startProgram() {
-        Adventure adventure = new Adventure();
+
         while (true) {
             System.out.print("Where do you want to go?: ");
             String command = scanner.nextLine().trim().toLowerCase();
@@ -29,7 +29,8 @@ public class UserInterface {
                     }
                 }
                 case "look" -> {
-                    adventure.look();
+                    System.out.println(player.getCurrentRoom().getName());
+                    System.out.println(player.getCurrentRoom().getDescription());
                 }
                 case "help" -> {
                     showHelp();
