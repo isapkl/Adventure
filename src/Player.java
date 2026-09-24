@@ -13,10 +13,6 @@ public class Player {
 
         return currentRoom;
     }
-//    public void printRoomInfo(){
-//        System.out.println(getCurrentRoom().getName());
-//        System.out.println(getCurrentRoom().getDescription());
-//    }
 
 
     public boolean move(String direction) {

@@ -1,13 +1,15 @@
 import java.util.Scanner;
 
 public class UserInterface {
+    private Adventure adventure;
     private Scanner scanner;
     private Player player;
 
 
-    public UserInterface(Player player) {
+    public UserInterface(Player player, Adventure adventure) {
         scanner = new Scanner(System.in);
         this.player = player;
+        this.adventure = adventure;
     }
 
     public void startProgram() {
@@ -29,8 +31,7 @@ public class UserInterface {
                     }
                 }
                 case "look" -> {
-                    System.out.println(player.getCurrentRoom().getName());
-                    System.out.println(player.getCurrentRoom().getDescription());
+                    adventure.look();
                 }
                 case "help" -> {
                     showHelp();
@@ -45,7 +46,7 @@ public class UserInterface {
     }
 
     public void showHelp(){
-            System.out.println("Move: go north, go south, go west, go east");
+            System.out.println("To move type: go north, go south, go west, go east");
             System.out.println("Look: Description of your current room");
             System.out.println("Help: Show commands");
             System.out.println("Exit: Quit the game");
