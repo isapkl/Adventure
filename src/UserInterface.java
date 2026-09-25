@@ -15,13 +15,14 @@ public class UserInterface {
         while (true) {
             System.out.print("Where do you want to go?: ");
             String command = scanner.nextLine().trim().toLowerCase();
+            String direction = parseInput(command);
 
             switch (command) {
                 case "go north", "north", "n",
                      "go south", "south", "s",
                      "go west", "west", "w",
                      "go east", "east", "e" -> {
-                    if (adventure.movePlayer(command)) {
+                    if (adventure.movePlayer(direction)) {
                         System.out.println(adventure.getCurrentRoom().getName());
                         System.out.println(adventure.getCurrentRoom().getDescription());
                     } else {
@@ -48,6 +49,16 @@ public class UserInterface {
             System.out.println("Look: Description of your current room");
             System.out.println("Help: Show commands");
             System.out.println("Exit: Quit the game");
+    }
+
+    public String parseInput(String command) {
+        return switch (command) {
+            case "go north", "north", "n" -> "north";
+            case "go south", "south", "s" -> "south";
+            case "go west", "west", "w" -> "west";
+            case "go east", "east", "e" -> "east";
+            default -> command;
+        };
     }
 
 }

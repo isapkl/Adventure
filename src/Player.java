@@ -16,10 +16,10 @@ public class Player {
 
     public boolean move(String direction) {
         Room desiredRoom = switch (direction) {
-            case "go north", "north", "n" -> currentRoom.getNorth();
-            case "go south", "south", "s" -> currentRoom.getSouth();
-            case "go west", "west", "w" -> currentRoom.getWest();
-            case "go east", "east", "e" -> currentRoom.getEast();
+            case "north" -> currentRoom.getNorth();
+            case "south" -> currentRoom.getSouth();
+            case "west" -> currentRoom.getWest();
+            case "east" -> currentRoom.getEast();
             default -> null;
         };
         if (desiredRoom != null) {
