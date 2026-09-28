@@ -39,7 +39,7 @@ public class UserInterface {
                 }
                 case "exit" -> {
                     System.out.println("Goodbye!");
-                    return;
+                    running = false;
                 }
                 default -> System.out.println("Unknown command");
             }
