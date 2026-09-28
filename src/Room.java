@@ -64,9 +64,6 @@ public class Room {
         items.remove(item);
     }
     public ArrayList<Item> getItems() {
-        for (int i = 0; i < items.size(); i++) {
-            items.get(i);
-        }
         return items;
     }
     public Item findItem(String shortname){

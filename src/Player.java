@@ -40,9 +40,18 @@ public class Player {
     public void removeItem(Item item){
         inventory.remove(item);
     }
-//    public Item takeItem(String shortName){
-//
-//    }
+    public Item takeItem(String shortName) {
+        Item item = currentRoom.findItem(shortName);
+
+        if (item != null) {
+            currentRoom.removeItem(item);
+            inventory.add(item);
+            return item;
+        }
+
+        return null;
+    }
+
 //    public Item dropItem(String shortName){
 //
 //    }

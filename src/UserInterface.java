@@ -41,6 +41,9 @@ public class UserInterface {
                     System.out.println("Goodbye!");
                     running = false;
                 }
+                case "take" -> {
+
+                }
                 default -> System.out.println("Unknown command");
             }
         }
