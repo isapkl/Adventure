@@ -4,6 +4,8 @@ public class UserInterface {
     private Adventure adventure;
     private Scanner scanner;
 
+    boolean running = true;
+
 
     public UserInterface(Adventure adventure) {
         scanner = new Scanner(System.in);
@@ -12,7 +14,7 @@ public class UserInterface {
 
     public void startProgram() {
 
-        while (true) {
+        while (running) {
             System.out.print("Where do you want to go?: ");
             String command = scanner.nextLine().trim().toLowerCase();
             String direction = parseInput(command);
