@@ -10,6 +10,14 @@ public class Map {
     private Room r8 = new Room("Room 8", "A dark cave with wet yet sandy floor");
     private Room r9 = new Room("Room 9", "A suspicous waterfall made of sand");
 
+
+    Item sword = new Item("A sword", "A long sword");
+    Item aRedKey = new Item("A red key", "A red key with an ominous aura");
+    Item aBlueKey = new Item("A blue key", "A blue key with an ominous aura");
+    Item aBucket = new Item("A bucket", "An empty copper bucket");
+    Item aCoin = new Item("A coin", "A gold coin");
+    Item aLamp = new Item("A lamp", "A shiny brass lamp");
+
     public Map(){
         setConnectionWestEast(r1, r2);
         setConnectionWestEast(r2, r3);
@@ -20,7 +28,16 @@ public class Map {
         setConnectionNorthSouth(r4, r7);
         setConnectionNorthSouth(r1, r4);
         setConnectionNorthSouth(r5, r8);
+
+        r1.addItem(sword);
+        r1.addItem(aRedKey);
+        r2.addItem(aLamp);
+        r6.addItem(aCoin);
+        r7.addItem(aBucket);
+        r8.addItem(aBlueKey);
     }
+
+
     private void setConnectionWestEast(Room w, Room e) {
         w.setEast(e);
         e.setWest(w);

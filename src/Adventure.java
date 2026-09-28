@@ -3,8 +3,18 @@ public class Adventure {
     private Map map;
 
     public void look(){
+        Room room = player.getCurrentRoom();
+
         System.out.println(player.getCurrentRoom().getName());
         System.out.println(player.getCurrentRoom().getDescription());
+            if (room.getItems().isEmpty()) {
+                System.out.println("There are no items here.");
+            } else {
+                System.out.println("Items:");
+                for (Item item : room.getItems()) {
+                    System.out.println("- " + item.getLongName());
+                }
+        }
     }
 
     public void start() {
