@@ -12,7 +12,7 @@ public class Adventure {
             } else {
                 System.out.println("Items:");
                 for (Item item : room.getItems()) {
-                    System.out.println("- " + item.getLongName());
+                    System.out.println("- " + item.getShortName());
                 }
         }
     }
@@ -34,5 +34,8 @@ public class Adventure {
     }
     public Item takeItem(String shortName){
         return player.takeItem(shortName);
+    }
+    public Item dropItem(String shortName){
+        return player.dropItem(shortName);
     }
 }

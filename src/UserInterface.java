@@ -19,41 +19,71 @@ public class UserInterface {
             String command = scanner.nextLine().trim().toLowerCase();
             String direction = parseInput(command);
 
-            switch (command) {
-                case "go north", "north", "n",
-                     "go south", "south", "s",
-                     "go west", "west", "w",
-                     "go east", "east", "e" -> {
-                    if (adventure.movePlayer(direction)) {
-                        System.out.println(adventure.getCurrentRoom().getName());
-                        System.out.println(adventure.getCurrentRoom().getDescription());
-                    } else {
-                        System.out.println("You cannot go that way");
-                    }
-                }
-                case "look" -> {
-                    adventure.look();
-                }
-                case "help" -> {
-                    showHelp();
-                }
-                case "exit" -> {
-                    System.out.println("Goodbye!");
-                    running = false;
-                }
-                case "take " -> {
-                    String itemName = command.substring(5).trim();
+            if (command.startsWith("take ")) {
 
-                    Item item = adventure.takeItem(itemName);
+                String itemTake = command.substring(5).trim();
+                Item takeItem = adventure.takeItem(itemTake);
 
-                    if(item != null){
-                        System.out.println("You took " + item.getLongName());
+                if (takeItem != null) {
+                    System.out.println("You took " + takeItem.getLongName());
+                } else {
+                    System.out.println("There is no item here called " + takeItem);
+                }
+            if (command.startsWith("drop ")) {
+
+                String itemDrop = command.substring(5).trim();
+                Item dropItem = adventure.dropItem(itemDrop);
+
+                if (dropItem != null) {
+                    System.out.println("You dropped " + dropItem);
+                } else {
+                    System.out.println("You dont have an item called " + itemDrop + "in your inventory");
+                }
+
+            }
+
+            } else {
+
+                switch (command) {
+
+                    case "go north", "north", "n",
+                         "go south", "south", "s",
+                         "go west", "west", "w",
+                         "go east", "east", "e" -> {
+
+                        if (adventure.movePlayer(direction)) {
+                            System.out.println(adventure.getCurrentRoom().getName());
+                            System.out.println(adventure.getCurrentRoom().getDescription());
+                        } else {
+                            System.out.println("You cannot go that way");
+                        }
                     }
-                    else {
-                        System.out.println("There is no item here called " + itemName);
+
+                    case "look" -> {
+                        adventure.look();
+                    }
+
+                    case "help" -> {
+                        showHelp();
+                    }
+
+                    case "take" -> {
+                        System.out.println("Write the name of the item you wish to take e.g. take sword");
+                    }
+
+                    case "drop" -> {
+                        System.out.println("Write the name of the item you wish to drop e.g. drop sword");
+                    }
+
+                    case "exit" -> {
+                        System.out.println("Goodbye!");
+                        running = false;
+                    }
+
+                    default -> {
+                        System.out.println("Unknown command");
                     }
                 }
-                default -> System.out.println("Unknown command");
             }
         }
     }
@@ -62,6 +92,7 @@ public class UserInterface {
             System.out.println("To move, type: go north, go south, go west, go east");
             System.out.println("Look: Description of your current room");
             System.out.println("Take: Take an item from the room");
+            System.out.println("Drop: Drop an item from your inventory");
             System.out.println("Help: Show commands");
             System.out.println("Exit: Quit the game");
     }
