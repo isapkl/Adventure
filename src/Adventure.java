@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Adventure {
     private Player player;
     private Map map;
@@ -37,5 +39,8 @@ public class Adventure {
     }
     public Item dropItem(String shortName){
         return player.dropItem(shortName);
+    }
+    public ArrayList<Item> getInventory() {
+        return player.getInventory();
     }
 }

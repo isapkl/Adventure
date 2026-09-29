@@ -29,7 +29,7 @@ public class UserInterface {
                 } else {
                     System.out.println("There is no item here called " + takeItem);
                 }
-            if (command.startsWith("drop ")) {
+            } else if (command.startsWith("drop ")) {
 
                 String itemDrop = command.substring(5).trim();
                 Item dropItem = adventure.dropItem(itemDrop);
@@ -37,10 +37,8 @@ public class UserInterface {
                 if (dropItem != null) {
                     System.out.println("You dropped " + dropItem.getLongName());
                 } else {
-                    System.out.println("You dont have an item called " + itemDrop + " in your inventory");
+                    System.out.println("You don't have an item called " + itemDrop + " in your inventory");
                 }
-
-            }
 
             } else {
 
@@ -75,6 +73,17 @@ public class UserInterface {
                         System.out.println("Write the name of the item you wish to drop e.g. drop sword");
                     }
 
+                    case "inventory" -> {
+                        if (adventure.getInventory().isEmpty()) {
+                            System.out.println("Inventory is empty.");
+                        } else {
+                            System.out.println("Your inventory: ");
+                            for (Item item : adventure.getInventory()) {
+                                System.out.println("- " + item.getLongName());
+                            }
+                        }
+                    }
+
                     case "exit" -> {
                         System.out.println("Goodbye!");
                         running = false;
@@ -93,6 +102,7 @@ public class UserInterface {
             System.out.println("Look: Description of your current room");
             System.out.println("Take: Take an item from the room");
             System.out.println("Drop: Drop an item from your inventory");
+            System.out.println("Inventory: Show your items");
             System.out.println("Help: Show commands");
             System.out.println("Exit: Quit the game");
     }
