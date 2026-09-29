@@ -32,4 +32,7 @@ public class Adventure {
     public Room getCurrentRoom(){
         return player.getCurrentRoom();
     }
+    public Item takeItem(String shortName){
+        return player.takeItem(shortName);
+    }
 }

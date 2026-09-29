@@ -41,8 +41,17 @@ public class UserInterface {
                     System.out.println("Goodbye!");
                     running = false;
                 }
-                case "take" -> {
+                case "take " -> {
+                    String itemName = command.substring(5).trim();
 
+                    Item item = adventure.takeItem(itemName);
+
+                    if(item != null){
+                        System.out.println("You took " + item.getLongName());
+                    }
+                    else {
+                        System.out.println("There is no item here called " + itemName);
+                    }
                 }
                 default -> System.out.println("Unknown command");
             }
@@ -52,6 +61,7 @@ public class UserInterface {
     public void showHelp(){
             System.out.println("To move, type: go north, go south, go west, go east");
             System.out.println("Look: Description of your current room");
+            System.out.println("Take: Take an item from the room");
             System.out.println("Help: Show commands");
             System.out.println("Exit: Quit the game");
     }

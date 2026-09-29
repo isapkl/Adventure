@@ -11,12 +11,12 @@ public class Map {
     private Room r9 = new Room("Room 9", "A suspicous waterfall made of sand");
 
 
-    Item sword = new Item("A sword", "A long sword");
-    Item aRedKey = new Item("A red key", "A red key with an ominous aura");
-    Item aBlueKey = new Item("A blue key", "A blue key with an ominous aura");
-    Item aBucket = new Item("A bucket", "An empty copper bucket");
-    Item aCoin = new Item("A coin", "A gold coin");
-    Item aLamp = new Item("A lamp", "A shiny brass lamp");
+    Item sword = new Item("sword", "A long sword");
+    Item aRedKey = new Item("red key", "A red key with an ominous aura");
+    Item aBlueKey = new Item("blue key", "A blue key with an ominous aura");
+    Item aBucket = new Item("bucket", "An empty copper bucket");
+    Item aCoin = new Item("coin", "A gold coin");
+    Item aLamp = new Item("lamp", "A shiny brass lamp");
 
     public Map(){
         setConnectionWestEast(r1, r2);

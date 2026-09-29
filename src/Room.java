@@ -68,7 +68,7 @@ public class Room {
     }
     public Item findItem(String shortname){
         for (int i = 0; i < items.size(); i++){
-            if (items.get(i).getShortName().equals(shortname)){
+            if (items.get(i).getShortName().equalsIgnoreCase(shortname)){
                 return items.get(i);
             }
         }

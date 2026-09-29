@@ -52,14 +52,25 @@ public class Player {
         return null;
     }
 
-//    public Item dropItem(String shortName){
-//
-//    }
-//    public Item findItem(String shortName){
-//
-//    }
+    public Item dropItem(String shortName){
+        Item item = findItem(shortName);
+
+        if (item != null) {
+            inventory.remove(item);
+            currentRoom.addItem(item);
+            return item;
+        }
+        return null;
+    }
+    public Item findItem(String shortName) {
+        for (Item item : inventory) {
+            if (item.getShortName().equalsIgnoreCase(shortName)) {
+                return item;
+            }
+        }
+        return null;
+    }
     public ArrayList<Item> getInventory(){
         return inventory;
     }
-
 }
