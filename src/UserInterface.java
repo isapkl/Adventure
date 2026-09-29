@@ -35,9 +35,9 @@ public class UserInterface {
                 Item dropItem = adventure.dropItem(itemDrop);
 
                 if (dropItem != null) {
-                    System.out.println("You dropped " + dropItem);
+                    System.out.println("You dropped " + dropItem.getLongName());
                 } else {
-                    System.out.println("You dont have an item called " + itemDrop + "in your inventory");
+                    System.out.println("You dont have an item called " + itemDrop + " in your inventory");
                 }
 
             }
