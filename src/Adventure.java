@@ -43,4 +43,12 @@ public class Adventure {
     public ArrayList<Item> getInventory() {
         return player.getInventory();
     }
+
+    public int getHealth() {
+        return player.getHealth();
+    }
+    public EatOutcome eat(String shortName)
+    {
+        return player.eat(shortName);
+    }
 }

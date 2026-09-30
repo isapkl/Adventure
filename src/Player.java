@@ -5,7 +5,45 @@ public class Player {
     private Map map;
     private Room currentRoom;
     private ArrayList<Item> inventory;
+    private int health = 100;
 
+    public int getHealth() {
+        return health;
+
+    }
+        public EatOutcome eat(String shortName) {
+
+            Item item = findItem(shortName);
+
+            if (item == null) {
+                item = currentRoom.findItem(shortName);
+            }
+
+            if (item == null) {
+                return new EatOutcome(EatResult.NOT_FOUND, null, 0);
+            }
+
+            if (!(item instanceof Food)) {
+                return new EatOutcome(
+                        EatResult.NOT_FOOD,
+                        item.getLongName(),
+                        0
+                );
+            }
+
+            Food food = (Food) item;
+
+            health += food.getHealthPoints();
+
+            inventory.remove(item);
+            currentRoom.removeItem(item);
+
+            return new EatOutcome(
+                    EatResult.EATEN,
+                    item.getLongName(),
+                    food.getHealthPoints()
+            );
+        }
 
     public Player(Map map) {
         this.map = map;

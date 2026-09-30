@@ -35,6 +35,15 @@ public class Map {
         r6.addItem(aCoin);
         r7.addItem(aBucket);
         r8.addItem(aBlueKey);
+        r1.addItem(unHealthyMushroom);
+        r4.addItem(watermelon);
+        r3.addItem(cookedChicken);
+        r2.addItem(deadAnimal);
+        r5.addItem(chicken);
+        r6.addItem(healthyMushroom);
+        r7.addItem(bread);
+
+
     }
 
 
@@ -49,4 +58,14 @@ public class Map {
     public Room getStartRoom() {
         return r1;
     }
+
+    Food bread = new Food("bread", "a loaf of stale bread", 10);
+    Food unHealthyMushroom = new Food ("Mushy", "a very unhealthy mushroom", -2);
+    Food healthyMushroom = new Food ("Mushroom", "a very healthy mushroom", 30);
+    Food watermelon = new Food ("Watermelon", "A juicy tasty watermelon", 25);
+    Food chicken = new Food ("Chicken", "A raw chicken", -15);
+    Food cookedChicken = new Food ("Cooked Chicken", "A tasty cooked Chicken", 50);
+    Food deadAnimal = new Food ("Bob", "An abandon dead animal", -40);
+
+
 }

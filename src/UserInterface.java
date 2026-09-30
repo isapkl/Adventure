@@ -39,6 +39,37 @@ public class UserInterface {
                 } else {
                     System.out.println("You don't have an item called " + itemDrop + " in your inventory");
                 }
+            }else if (command.startsWith("eat "))
+            {
+                String itemEat = command.substring(4).trim();
+                EatOutcome outcome = adventure.eat(itemEat);
+
+                switch (outcome.getResult()) {
+
+                    case NOT_FOUND -> {
+                        System.out.println(
+                                "There is nothing like " + itemEat + " to eat around here"
+                        );
+                    }
+
+                    case NOT_FOOD -> {
+                        System.out.println(
+                                "You cannot eat the " + outcome.getItemName()
+                        );
+                    }
+
+                    case EATEN -> {
+                        System.out.print(
+                                "You eat the " + outcome.getItemName() + ". "
+                        );
+
+                        if (outcome.getHealthChange() > 0) {
+                            System.out.println("You feel a little better.");
+                        } else {
+                            System.out.println("That was a mistake.");
+                        }
+                    }
+                }
 
             } else {
 
@@ -63,6 +94,40 @@ public class UserInterface {
 
                     case "help" -> {
                         showHelp();
+                    }
+                    case "health" -> {
+
+                        int health = adventure.getHealth();
+
+                        System.out.print("health: " + health + " - ");
+
+                        if (health >= 100) {
+
+                            System.out.println(
+                                    "you are in perfect health"
+                            );
+
+                        } else if (health >= 50) {
+
+                            System.out.println(
+                                    "you are in good health, but avoid fighting right now"
+                            );
+
+                        } else if (health >= 25) {
+
+                            System.out.println(
+                                    "you are wounded - find something healthy to eat"
+                            );
+
+                        } else if (health >= 1) {
+
+                            System.out.println(
+                                    "you are barely alive"
+                            );
+
+                        } else {
+                            System.out.println("dead");
+                        }
                     }
 
                     case "take" -> {
@@ -105,6 +170,7 @@ public class UserInterface {
             System.out.println("Inventory: Show your items");
             System.out.println("Help: Show commands");
             System.out.println("Exit: Quit the game");
+        System.out.println("health: current health");
     }
 
     public String parseInput(String command) {
@@ -116,5 +182,6 @@ public class UserInterface {
             default -> command;
         };
     }
+
 
 }
