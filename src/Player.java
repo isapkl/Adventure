@@ -40,7 +40,7 @@ public class Player {
 
             return new EatOutcome(
                     EatResult.EATEN,
-                    item.getLongName(),
+                    item.getShortName(),
                     food.getHealthPoints()
             );
         }

@@ -11,12 +11,12 @@ public class Map {
     private Room r9 = new Room("Room 9", "A suspicous waterfall made of sand");
 
 
-    Item sword = new Item("sword", "A long sword");
-    Item aRedKey = new Item("red key", "A red key with an ominous aura");
-    Item aBlueKey = new Item("blue key", "A blue key with an ominous aura");
-    Item aBucket = new Item("bucket", "An empty copper bucket");
-    Item aCoin = new Item("coin", "A gold coin");
-    Item aLamp = new Item("lamp", "A shiny brass lamp");
+    Item sword = new Item("sword", "a long sword");
+    Item aRedKey = new Item("red key", "a red key with an ominous aura");
+    Item aBlueKey = new Item("blue key", "a blue key with an ominous aura");
+    Item aBucket = new Item("bucket", "an empty copper bucket");
+    Item aCoin = new Item("coin", "a gold coin");
+    Item aLamp = new Item("lamp", "a shiny brass lamp");
 
     public Map(){
         setConnectionWestEast(r1, r2);
@@ -60,12 +60,12 @@ public class Map {
     }
 
     Food bread = new Food("bread", "a loaf of stale bread", 10);
-    Food unHealthyMushroom = new Food ("Mushy", "a very unhealthy mushroom", -2);
-    Food healthyMushroom = new Food ("Mushroom", "a very healthy mushroom", 30);
-    Food watermelon = new Food ("Watermelon", "A juicy tasty watermelon", 25);
-    Food chicken = new Food ("Chicken", "A raw chicken", -15);
-    Food cookedChicken = new Food ("Cooked Chicken", "A tasty cooked Chicken", 50);
-    Food deadAnimal = new Food ("Bob", "An abandon dead animal", -40);
+    Food unHealthyMushroom = new Food ("mushy", "a very unhealthy mushroom", -2);
+    Food healthyMushroom = new Food ("mushroom", "a very healthy mushroom", 30);
+    Food watermelon = new Food ("watermelon", "a juicy tasty watermelon", 25);
+    Food chicken = new Food ("chicken", "a raw chicken", -15);
+    Food cookedChicken = new Food ("cooked Chicken", "a tasty cooked Chicken", 50);
+    Food deadAnimal = new Food ("Bob", "an abandon dead animal", -40);
 
 
 }

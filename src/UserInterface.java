@@ -64,9 +64,9 @@ public class UserInterface {
                         );
 
                         if (outcome.getHealthChange() > 0) {
-                            System.out.println("You feel a little better.");
+                            System.out.println("You feel a little better. You gain " + outcome.getHealthChange() + " health");
                         } else {
-                            System.out.println("That was a mistake.");
+                            System.out.println("That was a mistake. " + outcome.getHealthChange() + " health");
                         }
                     }
                 }
@@ -149,6 +149,10 @@ public class UserInterface {
                         }
                     }
 
+                    case "eat" -> {
+                        System.out.println("Write the name of the item you wish to eat e.g. eat watermelon");
+                    }
+
                     case "exit" -> {
                         System.out.println("Goodbye!");
                         running = false;
@@ -168,9 +172,10 @@ public class UserInterface {
             System.out.println("Take: Take an item from the room");
             System.out.println("Drop: Drop an item from your inventory");
             System.out.println("Inventory: Show your items");
+            System.out.println("Health: Show current health");
+            System.out.println("Eat: Eat an item");
             System.out.println("Help: Show commands");
             System.out.println("Exit: Quit the game");
-        System.out.println("health: current health");
     }
 
     public String parseInput(String command) {
