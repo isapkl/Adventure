@@ -11,7 +11,7 @@ public class Map {
     private Room r9 = new Room("Room 9", "A suspicous waterfall made of sand");
 
 
-    Item sword = new Item("sword", "a long sword");
+    Weapon sword = new MeleeWeapon("sword", "a long sword", 10);
     Item aRedKey = new Item("red key", "a red key with an ominous aura");
     Item aBlueKey = new Item("blue key", "a blue key with an ominous aura");
     Item aBucket = new Item("bucket", "an empty copper bucket");

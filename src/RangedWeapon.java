@@ -2,8 +2,9 @@ public class RangedWeapon extends Weapon{
 
     private int ammunition;
 
-    public RangedWeapon(String shortName, String longName, int damage) {
+    public RangedWeapon(String shortName, String longName, int damage, int ammunition) {
         super(shortName, longName, damage);
+        this.ammunition = ammunition;
     }
 
     @Override
@@ -19,7 +20,11 @@ public class RangedWeapon extends Weapon{
         return "fire";
     }
 
+    public int getAmmunition() {
+        return ammunition;
+    }
+
     public String getUsesLeftText(){
-        return "You have " + ammunition + " uses left";
+        return "You have " + getAmmunition() + " uses left";
     }
 }

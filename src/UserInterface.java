@@ -39,6 +39,19 @@ public class UserInterface {
                 } else {
                     System.out.println("You don't have an item called " + itemDrop + " in your inventory");
                 }
+            }else if (command.startsWith("equip ")) {
+
+                String itemEquip = command.substring(6).trim();
+                EquipResult result = adventure.equip(itemEquip);
+
+                switch (result) {
+                    case NOT_FOUND -> System.out.println("You don't have that item.");
+
+                    case NOT_WEAPON -> System.out.println("That item is not a weapon.");
+
+                    case EQUIPPED -> System.out.println("You equipped the " + itemEquip + ".");
+                }
+
             }else if (command.startsWith("eat "))
             {
                 String itemEat = command.substring(4).trim();
@@ -154,10 +167,29 @@ public class UserInterface {
                     }
                     case "attack" -> {
 
-                        Weapon weapon =
+                        AttackResult result = adventure.attack();
 
-                        System.out.println("You " + weapon.getAttackVerb() + " " + weapon.getLongName()
-                                + " at the empty air. " + weapon.getUsesLeftText());
+                        switch (result) {
+                            case NO_WEAPON ->
+                                    System.out.println("You have no weapon equipped.");
+
+                            case CANNOT_USE ->
+                                    System.out.println("You cannot use that weapon.");
+
+                            case ATTACK -> {
+                                Weapon weapon = adventure.getEquipped();
+
+                                System.out.println(
+                                        "You " + weapon.getAttackVerb() + " " +
+                                                weapon.getLongName() + " at the empty air. " +
+                                                weapon.getUsesLeftText()
+                                );
+                            }
+                        }
+                    }
+
+                    case "equip" -> {
+                        System.out.println("Write the name of the weapon you wish to equip e.g. equip sword");
                     }
 
                     case "exit" -> {
@@ -180,6 +212,8 @@ public class UserInterface {
             System.out.println("Drop: Drop an item from your inventory");
             System.out.println("Inventory: Show your items");
             System.out.println("Health: Show current health");
+            System.out.println("Equip: Equip a weapon");
+            System.out.println("Attack: Use a weapon to attack");
             System.out.println("Eat: Eat an item");
             System.out.println("Help: Show commands");
             System.out.println("Exit: Quit the game");

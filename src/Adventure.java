@@ -54,4 +54,10 @@ public class Adventure {
     public AttackResult attack(){
         return player.attack();
     }
+    public Weapon getEquipped() {
+        return player.getEquipped();
+    }
+    public EquipResult equip(String shortName) {
+        return player.equip(shortName);
+    }
 }

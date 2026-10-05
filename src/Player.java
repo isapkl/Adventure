@@ -46,6 +46,10 @@ public class Player {
             );
         }
 
+        public Weapon getEquipped(){
+            return equipped;
+        }
+
         public EquipResult equip(String shortName){
         Item item = findItem(shortName);
 
