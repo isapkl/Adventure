@@ -6,6 +6,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory;
     private int health = 100;
+    private Weapon equipped;
 
     public int getHealth() {
         return health;
@@ -110,5 +111,12 @@ public class Player {
     }
     public ArrayList<Item> getInventory(){
         return inventory;
+    }
+
+    public void equip(String shortName){
+
+    }
+    public void attack(){
+
     }
 }
