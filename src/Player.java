@@ -130,6 +130,11 @@ public class Player {
         if (item != null) {
             inventory.remove(item);
             currentRoom.addItem(item);
+
+            if (item == equipped) {
+                equipped = null;
+            }
+
             return item;
         }
         return null;
