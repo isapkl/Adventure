@@ -12,6 +12,19 @@ public class Map {
 
 
     Weapon sword = new MeleeWeapon("sword", "a long sword", 10);
+    Weapon pistol = new RangedWeapon(
+
+            "pistol", "an old muzzle-loading pistol", 25, 1);
+    Weapon knives = new RangedWeapon(
+
+            "knives", "a set of throwing knives", 15, 3);
+    Weapon halberd = new MeleeWeapon(
+
+            "halberd", "a heavy halberd", 20);
+    Weapon wand = new MagicWand(
+
+            "wand", "a glowing magic wand", 30, 5);
+
     Item aRedKey = new Item("red key", "a red key with an ominous aura");
     Item aBlueKey = new Item("blue key", "a blue key with an ominous aura");
     Item aBucket = new Item("bucket", "an empty copper bucket");
@@ -42,6 +55,10 @@ public class Map {
         r5.addItem(chicken);
         r6.addItem(healthyMushroom);
         r7.addItem(bread);
+        r2.addItem(pistol);
+        r4.addItem(knives);
+        r6.addItem(halberd);
+        r9.addItem(wand);
 
 
     }
