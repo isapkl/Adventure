@@ -51,4 +51,7 @@ public class Adventure {
     {
         return player.eat(shortName);
     }
+    public AttackResult attack(){
+        return player.attack();
+    }
 }

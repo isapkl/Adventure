@@ -46,6 +46,35 @@ public class Player {
             );
         }
 
+        public EquipResult equip(String shortName){
+        Item item = findItem(shortName);
+
+        if (item == null){
+            return EquipResult.NOT_FOUND;
+        }
+        Weapon weapon = item.getWeapon();
+
+        if(weapon == null){
+            return EquipResult.NOT_WEAPON;
+        }
+        equipped = weapon;
+
+        return EquipResult.EQUIPPED;
+        }
+
+    public AttackResult attack(){
+
+        if (equipped == null){
+            return AttackResult.NO_WEAPON;
+        }
+        if(!equipped.canUse()){
+            return AttackResult.CANNOT_USE;
+        }
+        equipped.use();
+
+        return AttackResult.ATTACK;
+    }
+
     public Player(Map map) {
         this.map = map;
         this.currentRoom = map.getStartRoom();
@@ -113,10 +142,5 @@ public class Player {
         return inventory;
     }
 
-    public void equip(String shortName){
 
-    }
-    public void attack(){
-
-    }
 }

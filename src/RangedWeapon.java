@@ -16,7 +16,7 @@ public class RangedWeapon extends Weapon{
         ammunition--;
     }
     public String getAttackVerb(){
-        return "You fire the " + getShortName() + " at the empty air";
+        return "fire";
     }
 
     public String getUsesLeftText(){

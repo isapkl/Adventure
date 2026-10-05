@@ -11,6 +11,10 @@ public abstract class Weapon extends Item{
         return damage;
     }
 
+    public Weapon getWeapon(){
+        return this;
+    }
+
     public abstract boolean canUse();
 
     public abstract void use();
@@ -18,5 +22,7 @@ public abstract class Weapon extends Item{
     public abstract String getAttackVerb();
 
     public abstract String getUsesLeftText();
+
+
 
 }

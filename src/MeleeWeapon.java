@@ -15,10 +15,10 @@ public class MeleeWeapon extends Weapon{
     }
 
     public String getAttackVerb(){
-        return "You swing the " + getShortName() + " at the empty air";
+        return "swing";
     }
 
     public String getUsesLeftText(){
-        return null;
+        return "";
     }
 }

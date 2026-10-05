@@ -15,5 +15,9 @@ public class Item {
         return longName;
     }
 
+    public Weapon getWeapon(){
+        return null;
+    }
+
 
 }

@@ -152,6 +152,13 @@ public class UserInterface {
                     case "eat" -> {
                         System.out.println("Write the name of the item you wish to eat e.g. eat watermelon");
                     }
+                    case "attack" -> {
+
+                        Weapon weapon =
+
+                        System.out.println("You " + weapon.getAttackVerb() + " " + weapon.getLongName()
+                                + " at the empty air. " + weapon.getUsesLeftText());
+                    }
 
                     case "exit" -> {
                         System.out.println("Goodbye!");
