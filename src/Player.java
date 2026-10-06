@@ -12,6 +12,10 @@ public class Player {
         return health;
 
     }
+    public void hit(int damage) {
+        health -= damage;
+    }
+
         public EatOutcome eat(String shortName) {
 
             Item item = findItem(shortName);
@@ -88,6 +92,8 @@ public class Player {
             enemy.die();
             return AttackResult.ENEMY_DIED;
         }
+
+        hit(enemy.getWeapon().getDamage());
 
         return AttackResult.ENEMY_HIT;
     }

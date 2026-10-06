@@ -72,6 +72,7 @@ public class Adventure {
         return player.attack(enemyName);
     }
 
+
     public Weapon getEquipped() {
         return player.getEquipped();
     }

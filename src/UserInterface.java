@@ -125,6 +125,8 @@ public class UserInterface {
                                         + " for " + weapon.getDamage()
                                         + " damage."
                         );
+
+
                     }
 
                     case ENEMY_DIED ->
