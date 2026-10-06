@@ -230,9 +230,36 @@ public class UserInterface {
                     }
 
                     case "attack" -> {
-                        System.out.println(
-                                "Write the name of the enemy you wish to attack e.g. attack troll"
-                        );
+                        AttackResult result = adventure.attack("");
+
+                        switch (result) {
+
+                            case NO_WEAPON ->
+                                    System.out.println("You have no weapon equipped.");
+
+                            case CANNOT_USE ->
+                                    System.out.println("You cannot use that weapon.");
+
+                            case ATTACK -> {
+                                Weapon weapon = adventure.getEquipped();
+
+                                System.out.println(
+                                        "You " + weapon.getAttackVerb() + " "
+                                                + weapon.getLongName()
+                                                + " at the empty air. "
+                                                + weapon.getUsesLeftText()
+                                );
+                            }
+
+                            case ENEMY_NOT_FOUND ->
+                                    System.out.println("There is no enemy here.");
+
+                            case ENEMY_HIT ->
+                                    System.out.println("You hit the enemy.");
+
+                            case ENEMY_DIED ->
+                                    System.out.println("The enemy died.");
+                        }
                     }
 
                     case "equip" -> {

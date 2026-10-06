@@ -71,13 +71,29 @@ public class Player {
         if (equipped == null){
             return AttackResult.NO_WEAPON;
         }
-        if(!equipped.canUse()){
+
+        if (!equipped.canUse()){
             return AttackResult.CANNOT_USE;
         }
-        Enemy enemy = currentRoom.findEnemy(enemyName);
 
-        if (enemy == null) {
-            return AttackResult.ENEMY_NOT_FOUND;
+        Enemy enemy;
+
+        if (enemyName.isEmpty()) {
+
+            if (currentRoom.getEnemies().isEmpty()) {
+                equipped.use();
+                return AttackResult.ATTACK;
+            }
+
+            enemy = currentRoom.getEnemies().get(0);
+
+        } else {
+
+            enemy = currentRoom.findEnemy(enemyName);
+
+            if (enemy == null) {
+                return AttackResult.ENEMY_NOT_FOUND;
+            }
         }
 
         equipped.use();
@@ -91,7 +107,6 @@ public class Player {
 
         return AttackResult.ENEMY_HIT;
     }
-
     public Player(Map map) {
         this.map = map;
         this.currentRoom = map.getStartRoom();
