@@ -149,8 +149,19 @@ public class UserInterface {
                             System.out.println(
                                     adventure.getCurrentRoom().getDescription()
                             );
+
+                            if (adventure.getCurrentRoom().getItems().isEmpty()) {
+                                System.out.println("There are no items in this room.");
+                            } else {
+                                System.out.println("Items:");
+
+                                for (Item item : adventure.getCurrentRoom().getItems()) {
+                                    System.out.println("- " + item.getShortName());
+                                }
+                            }
+
                             if (adventure.getCurrentRoom().getEnemies().isEmpty()) {
-                                System.out.println("There are no enemies here.");
+                                System.out.println("There are no enemies in this room.");
                             } else {
                                 System.out.println("Enemies:");
 
