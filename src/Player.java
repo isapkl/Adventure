@@ -66,7 +66,7 @@ public class Player {
         return EquipResult.EQUIPPED;
         }
 
-    public AttackResult attack(){
+    public AttackResult attack(String enemyName){
 
         if (equipped == null){
             return AttackResult.NO_WEAPON;
@@ -74,9 +74,22 @@ public class Player {
         if(!equipped.canUse()){
             return AttackResult.CANNOT_USE;
         }
+        Enemy enemy = currentRoom.findEnemy(enemyName);
+
+        if (enemy == null) {
+            return AttackResult.ENEMY_NOT_FOUND;
+        }
+
         equipped.use();
 
-        return AttackResult.ATTACK;
+        enemy.hit(equipped.getDamage());
+
+        if (enemy.isDead()) {
+            enemy.die();
+            return AttackResult.ENEMY_DIED;
+        }
+
+        return AttackResult.ENEMY_HIT;
     }
 
     public Player(Map map) {

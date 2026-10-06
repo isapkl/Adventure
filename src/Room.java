@@ -9,14 +9,16 @@ public class Room {
     private Room south;
     private Room west;
 
+
     private ArrayList<Item> items;
+    private ArrayList<Enemy> enemies;
 
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
         this.items = new ArrayList<>();
+        this.enemies = new ArrayList<>();
     }
-
     public String getName(){
         return name;
     }
@@ -70,6 +72,26 @@ public class Room {
         for (int i = 0; i < items.size(); i++){
             if (items.get(i).getShortName().equalsIgnoreCase(shortname)){
                 return items.get(i);
+            }
+        }
+        return null;
+    }
+    public void addEnemy(Enemy enemy) {
+        enemies.add(enemy);
+    }
+
+    public void removeEnemy(Enemy enemy) {
+        enemies.remove(enemy);
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public Enemy findEnemy(String shortName) {
+        for (Enemy enemy : enemies) {
+            if (enemy.getShortName().equalsIgnoreCase(shortName)) {
+                return enemy;
             }
         }
         return null;

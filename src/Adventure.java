@@ -51,8 +51,8 @@ public class Adventure {
     {
         return player.eat(shortName);
     }
-    public AttackResult attack(){
-        return player.attack();
+    public AttackResult attack(String enemyName){
+        return player.attack(enemyName);
     }
     public Weapon getEquipped() {
         return player.getEquipped();
