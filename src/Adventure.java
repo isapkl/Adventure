@@ -27,7 +27,10 @@ public class Adventure {
             System.out.println("Enemies:");
 
             for (Enemy enemy : room.getEnemies()) {
-                System.out.println("- " + enemy.getShortName());
+                System.out.println(
+                        "- " + enemy.getShortName()
+                                + " - health: " + enemy.getHealth()
+                );
             }
         }
     }
