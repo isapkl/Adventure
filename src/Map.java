@@ -12,18 +12,12 @@ public class Map {
 
 
     Weapon sword = new MeleeWeapon("sword", "a long sword", 10);
-    Weapon pistol = new RangedWeapon(
+    Weapon pistol = new RangedWeapon("pistol", "an old muzzle-loading pistol", 25, 1);
+    Weapon knives = new RangedWeapon("knives", "a set of throwing knives", 15, 3);
+    Weapon halberd = new MeleeWeapon("halberd", "a heavy halberd", 20);
+    Weapon wand = new MagicWand("wand", "a glowing magic wand", 30, 5);
 
-            "pistol", "an old muzzle-loading pistol", 25, 1);
-    Weapon knives = new RangedWeapon(
-
-            "knives", "a set of throwing knives", 15, 3);
-    Weapon halberd = new MeleeWeapon(
-
-            "halberd", "a heavy halberd", 20);
-    Weapon wand = new MagicWand(
-
-            "wand", "a glowing magic wand", 30, 5);
+    Enemy troll = new Enemy("troll", "a dangerous troll", "with sharp teeth", 40, sword, r4);
 
     Item aRedKey = new Item("red key", "a red key with an ominous aura");
     Item aBlueKey = new Item("blue key", "a blue key with an ominous aura");
@@ -59,6 +53,7 @@ public class Map {
         r4.addItem(knives);
         r6.addItem(halberd);
         r9.addItem(wand);
+        r4.addEnemy(troll);
 
 
     }

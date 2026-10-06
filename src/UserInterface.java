@@ -125,6 +125,8 @@ public class UserInterface {
                                         + " for " + weapon.getDamage()
                                         + " damage."
                         );
+
+
                     }
 
                     case ENEMY_DIED ->
@@ -147,6 +149,15 @@ public class UserInterface {
                             System.out.println(
                                     adventure.getCurrentRoom().getDescription()
                             );
+                            if (adventure.getCurrentRoom().getEnemies().isEmpty()) {
+                                System.out.println("There are no enemies here.");
+                            } else {
+                                System.out.println("Enemies:");
+
+                                for (Enemy enemy : adventure.getCurrentRoom().getEnemies()) {
+                                    System.out.println("- " + enemy.getShortName());
+                                }
+                            }
                         } else {
                             System.out.println("You cannot go that way");
                         }
