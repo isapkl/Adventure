@@ -117,13 +117,12 @@ public class UserInterface {
                             );
 
                     case ENEMY_HIT -> {
+                        Enemy enemy = adventure.getCurrentRoom().getEnemies().get(0);
                         Weapon weapon = adventure.getEquipped();
 
                         System.out.println(
-                                "You hit " + enemyName
-                                        + " with " + weapon.getLongName()
-                                        + " for " + weapon.getDamage()
-                                        + " damage."
+                                "You hit the " + enemy.getShortName() + " with " + weapon.getLongName() +
+                                        " for " + weapon.getDamage() + " damage. It has " + enemy.getHealth() + " health left."
                         );
 
 
@@ -278,10 +277,11 @@ public class UserInterface {
 
                             case ENEMY_HIT ->{
                                     Enemy enemy = adventure.getCurrentRoom().getEnemies().get(0);
+                                    Weapon weapon = adventure.getEquipped();
 
                             System.out.println(
-                                    "You hit the " + enemy.getShortName() +
-                                            ". It has " + enemy.getHealth() + " health left."
+                                    "You hit the " + enemy.getShortName() + " with " + weapon.getLongName() +
+                                            " for " + weapon.getDamage() + " damage. It has " + enemy.getHealth() + " health left."
                             );
 
                         }
