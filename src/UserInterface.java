@@ -265,8 +265,15 @@ public class UserInterface {
                             case ENEMY_NOT_FOUND ->
                                     System.out.println("There is no enemy here.");
 
-                            case ENEMY_HIT ->
-                                    System.out.println("You hit the enemy.");
+                            case ENEMY_HIT ->{
+                                    Enemy enemy = adventure.getCurrentRoom().getEnemies().get(0);
+
+                            System.out.println(
+                                    "You hit the " + enemy.getShortName() +
+                                            ". It has " + enemy.getHealth() + " health left."
+                            );
+
+                        }
 
                             case ENEMY_DIED ->
                                     System.out.println("The enemy died.");
