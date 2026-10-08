@@ -143,21 +143,43 @@ public class UserInterface {
                             if (adventure.getCurrentRoom().getItems().isEmpty()) {
                                 System.out.println("There are no items in this room.");
                             } else {
-                                System.out.println("Items:");
+                                System.out.print("Items: ");
 
-                                for (Item item : adventure.getCurrentRoom().getItems()) {
-                                    System.out.println("- " + item.getShortName());
+                                for (int i = 0; i < adventure.getCurrentRoom().getItems().size(); i++) {
+                                    Item item = adventure.getCurrentRoom().getItems().get(i);
+
+                                    if (i == 0) {
+                                        System.out.print(
+                                                item.getShortName().substring(0, 1).toUpperCase()
+                                                        + item.getShortName().substring(1)
+                                        );
+                                    } else {
+                                        System.out.print(item.getShortName());
+                                    }
+
+                                    if (i < adventure.getCurrentRoom().getItems().size() - 1) {
+                                        System.out.print(", ");
+                                    }
                                 }
+                                System.out.println();
                             }
 
                             if (adventure.getCurrentRoom().getEnemies().isEmpty()) {
                                 System.out.println("There are no enemies in this room.");
                             } else {
-                                System.out.println("Enemies:");
+                                System.out.print("Enemies: ");
 
-                                for (Enemy enemy : adventure.getCurrentRoom().getEnemies()) {
-                                    System.out.println("- " + enemy.getShortName());
+                                for (int i = 0; i < adventure.getCurrentRoom().getEnemies().size(); i++) {
+                                    Enemy enemy = adventure.getCurrentRoom().getEnemies().get(i);
+
+                                    System.out.print(enemy.getShortName().substring(0, 1).toUpperCase() +
+                                            enemy.getShortName().substring(1));
+
+                                    if (i < adventure.getCurrentRoom().getEnemies().size() - 1) {
+                                        System.out.print(", ");
+                                    }
                                 }
+                                System.out.println();
                             }
                         } else {
                             System.out.println("You cannot go that way");

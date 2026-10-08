@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Adventure {
 
@@ -17,7 +18,8 @@ public class Adventure {
             System.out.println("Items:");
 
             for (Item item : room.getItems()) {
-                System.out.println("- " + item.getShortName());
+                System.out.println("- " + item.getShortName().substring(0, 1).toUpperCase() +
+                        item.getShortName().substring(1));
             }
         }
 
@@ -28,8 +30,9 @@ public class Adventure {
 
             for (Enemy enemy : room.getEnemies()) {
                 System.out.println(
-                        "- " + enemy.getShortName()
-                                + " - health: " + enemy.getHealth()
+                        "- " + enemy.getShortName().substring(0, 1).toUpperCase() +
+                                enemy.getShortName().substring(1)
+                                + ". Health: " + enemy.getHealth()
                 );
             }
         }
