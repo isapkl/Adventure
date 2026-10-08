@@ -18,7 +18,7 @@ public class Map {
     Weapon wand = new MagicWand("wand", "a glowing magic wand", 30, 5);
 
     Enemy troll = new Enemy("troll", "a dangerous troll", "with sharp teeth", 40, sword, r4);
-    Enemy bee= new Enemy("bee", "a huge bee", "that dosnt like you", 40, wand, r4);
+    Enemy bee= new Enemy("bee", "a huge bee", "that dosnt like you", 190, wand, r4);
     Enemy bat= new Enemy("bat", "a fast scary bat", "with very long wings", 65, knives, r2);
     Enemy cuteDog= new Enemy("dog", "a very cute dog", "that wants to eat you alive", 15, wand, r5);
     Enemy lavaMonster= new Enemy("lava monster", "a 100 meter big lava monster", "that shoots", 70, halberd, r3);

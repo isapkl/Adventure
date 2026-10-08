@@ -47,14 +47,11 @@ public class UserInterface {
                 EquipResult result = adventure.equip(itemEquip);
 
                 switch (result) {
-                    case NOT_FOUND ->
-                            System.out.println("You don't have that item.");
+                    case NOT_FOUND -> System.out.println("You don't have that item.");
 
-                    case NOT_WEAPON ->
-                            System.out.println("That item is not a weapon.");
+                    case NOT_WEAPON -> System.out.println("That item is not a weapon.");
 
-                    case EQUIPPED ->
-                            System.out.println("You equipped the " + itemEquip + ".");
+                    case EQUIPPED -> System.out.println("You equipped the " + itemEquip + ".");
                 }
 
             } else if (command.startsWith("eat ")) {
@@ -99,14 +96,11 @@ public class UserInterface {
 
                 switch (result) {
 
-                    case NO_WEAPON ->
-                            System.out.println("You have no weapon equipped.");
+                    case NO_WEAPON -> System.out.println("You have no weapon equipped.");
 
-                    case CANNOT_USE ->
-                            System.out.println("You cannot use that weapon.");
+                    case CANNOT_USE -> System.out.println("You cannot use that weapon.");
 
-                    case ENEMY_NOT_FOUND ->
-                            System.out.println("There is no enemy here called " + enemyName);
+                    case ENEMY_NOT_FOUND -> System.out.println("There is no enemy here called " + enemyName);
 
                     case ENEMY_HIT -> {
                         Enemy enemy = adventure.getCurrentRoom().getEnemies().get(0);
@@ -119,8 +113,7 @@ public class UserInterface {
                         );
                     }
 
-                    case ENEMY_DIED ->
-                            System.out.println(enemyName + " died.");
+                    case ENEMY_DIED -> System.out.println(enemyName + " died.");
                 }
 
             } else {
@@ -217,7 +210,7 @@ public class UserInterface {
                             System.out.println("you are barely alive");
 
                         } else {
-                            System.out.println("dead");
+                            System.out.println("You died");
                         }
                     }
 
@@ -252,11 +245,9 @@ public class UserInterface {
 
                         switch (result) {
 
-                            case NO_WEAPON ->
-                                    System.out.println("You have no weapon equipped.");
+                            case NO_WEAPON -> System.out.println("You have no weapon equipped.");
 
-                            case CANNOT_USE ->
-                                    System.out.println("You cannot use that weapon.");
+                            case CANNOT_USE -> System.out.println("You cannot use that weapon.");
 
                             case ATTACK -> {
                                 Weapon weapon = adventure.getEquipped();
@@ -269,22 +260,20 @@ public class UserInterface {
                                 );
                             }
 
-                            case ENEMY_NOT_FOUND ->
-                                    System.out.println("There is no enemy here.");
+                            case ENEMY_NOT_FOUND -> System.out.println("There is no enemy here.");
 
-                            case ENEMY_HIT ->{
-                                    Enemy enemy = adventure.getCurrentRoom().getEnemies().get(0);
-                                    Weapon weapon = adventure.getEquipped();
+                            case ENEMY_HIT -> {
+                                Enemy enemy = adventure.getCurrentRoom().getEnemies().get(0);
+                                Weapon weapon = adventure.getEquipped();
 
-                            System.out.println(
-                                    "You hit the " + enemy.getShortName() + " with " + weapon.getLongName() +
-                                            " for " + weapon.getDamage() + " damage. It has " + enemy.getHealth() + " health left."
-                            );
+                                System.out.println(
+                                        "You hit the " + enemy.getShortName() + " with " + weapon.getLongName() +
+                                                " for " + weapon.getDamage() + " damage. It has " + enemy.getHealth() + " health left."
+                                );
 
-                        }
+                            }
 
-                            case ENEMY_DIED ->
-                                    System.out.println("The enemy died.");
+                            case ENEMY_DIED -> System.out.println("The enemy died.");
                         }
                     }
 
@@ -302,8 +291,13 @@ public class UserInterface {
                     }
                 }
             }
+            if (adventure.getHealth() <= 0) {
+                System.out.println("Game over");
+                break;
+            }
         }
     }
+
 
 
     public void showHelp() {
