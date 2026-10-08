@@ -65,21 +65,15 @@ public class UserInterface {
                 switch (outcome.getResult()) {
 
                     case NOT_FOUND -> {
-                        System.out.println(
-                                "There is nothing like " + itemEat + " to eat around here"
-                        );
+                        System.out.println("There is nothing like " + itemEat + " to eat around here");
                     }
 
                     case NOT_FOOD -> {
-                        System.out.println(
-                                "You cannot eat the " + outcome.getItemName()
-                        );
+                        System.out.println("You cannot eat the " + outcome.getItemName());
                     }
 
                     case EATEN -> {
-                        System.out.print(
-                                "You eat the " + outcome.getItemName() + ". "
-                        );
+                        System.out.print("You eat the " + outcome.getItemName() + ". ");
 
                         if (outcome.getHealthChange() > 0) {
                             System.out.println(
@@ -112,9 +106,7 @@ public class UserInterface {
                             System.out.println("You cannot use that weapon.");
 
                     case ENEMY_NOT_FOUND ->
-                            System.out.println(
-                                    "There is no enemy here called " + enemyName
-                            );
+                            System.out.println("There is no enemy here called " + enemyName);
 
                     case ENEMY_HIT -> {
                         Enemy enemy = adventure.getCurrentRoom().getEnemies().get(0);
@@ -122,10 +114,9 @@ public class UserInterface {
 
                         System.out.println(
                                 "You hit the " + enemy.getShortName() + " with " + weapon.getLongName() +
-                                        " for " + weapon.getDamage() + " damage. It has " + enemy.getHealth() + " health left."
+                                        " for " + weapon.getDamage() + " damage. It has " +
+                                        enemy.getHealth() + " health left."
                         );
-
-
                     }
 
                     case ENEMY_DIED ->
@@ -189,27 +180,19 @@ public class UserInterface {
 
                         if (health >= 100) {
 
-                            System.out.println(
-                                    "you are in perfect health"
-                            );
+                            System.out.println("you are in perfect health");
 
                         } else if (health >= 50) {
 
-                            System.out.println(
-                                    "you are in good health, but avoid fighting right now"
-                            );
+                            System.out.println("you are in good health, but avoid fighting right now");
 
                         } else if (health >= 25) {
 
-                            System.out.println(
-                                    "you are wounded - find something healthy to eat"
-                            );
+                            System.out.println("you are wounded - find something healthy to eat");
 
                         } else if (health >= 1) {
 
-                            System.out.println(
-                                    "you are barely alive"
-                            );
+                            System.out.println("you are barely alive");
 
                         } else {
                             System.out.println("dead");
@@ -217,15 +200,11 @@ public class UserInterface {
                     }
 
                     case "take" -> {
-                        System.out.println(
-                                "Write the name of the item you wish to take e.g. take sword"
-                        );
+                        System.out.println("Write the name of the item you wish to take e.g. take sword");
                     }
 
                     case "drop" -> {
-                        System.out.println(
-                                "Write the name of the item you wish to drop e.g. drop sword"
-                        );
+                        System.out.println("Write the name of the item you wish to drop e.g. drop sword");
                     }
 
                     case "inventory" -> {
@@ -237,17 +216,13 @@ public class UserInterface {
                             System.out.println("Your inventory: ");
 
                             for (Item item : adventure.getInventory()) {
-                                System.out.println(
-                                        "- " + item.getLongName()
-                                );
+                                System.out.println("- " + item.getLongName());
                             }
                         }
                     }
 
                     case "eat" -> {
-                        System.out.println(
-                                "Write the name of the item you wish to eat e.g. eat watermelon"
-                        );
+                        System.out.println("Write the name of the item you wish to eat e.g. eat watermelon");
                     }
 
                     case "attack" -> {
@@ -292,9 +267,7 @@ public class UserInterface {
                     }
 
                     case "equip" -> {
-                        System.out.println(
-                                "Write the name of the weapon you wish to equip e.g. equip sword"
-                        );
+                        System.out.println("Write the name of the weapon you wish to equip e.g. equip sword");
                     }
 
                     case "exit" -> {
