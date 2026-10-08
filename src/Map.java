@@ -18,6 +18,12 @@ public class Map {
     Weapon wand = new MagicWand("wand", "a glowing magic wand", 30, 5);
 
     Enemy troll = new Enemy("troll", "a dangerous troll", "with sharp teeth", 40, sword, r4);
+    Enemy bee= new Enemy("bee", "a huge bee", "that dosnt like you", 40, wand, r4);
+    Enemy bat= new Enemy("bat", "a fast scary bat", "with very long wings", 65, knives, r2);
+    Enemy cuteDog= new Enemy("dog", "a very cute dog", "that wants to eat you alive", 15, wand, r5);
+    Enemy lavaMonster= new Enemy("lava monster", "a 100 meter big lava monster", "that shoots", 70, halberd, r3);
+    Enemy spider= new Enemy("spider", "a silent scary spider", "with very long legs", 35, knives, r6);
+
 
     Item aRedKey = new Item("red key", "a red key with an ominous aura");
     Item aBlueKey = new Item("blue key", "a blue key with an ominous aura");
@@ -54,6 +60,11 @@ public class Map {
         r6.addItem(halberd);
         r9.addItem(wand);
         r4.addEnemy(troll);
+        r4.addEnemy(bee);
+        r2.addEnemy(bat);
+        r5.addEnemy(cuteDog);
+        r3.addEnemy(lavaMonster);
+        r6.addEnemy(spider);
 
 
     }
