@@ -33,6 +33,7 @@ public class Enemy {
         return description;
     }
 
+
     public int getHealth() {
         return health;
     }

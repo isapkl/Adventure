@@ -99,6 +99,7 @@ public class Player {
                 return AttackResult.ENEMY_NOT_FOUND;
             }
         }
+        currentRoom.setLastAttackedEnemy(enemy);
 
         equipped.use();
 

@@ -9,6 +9,7 @@ public class Room {
     private Room south;
     private Room west;
 
+    private Enemy lastAttackedEnemy;
 
     private ArrayList<Item> items;
     private ArrayList<Enemy> enemies;
@@ -30,6 +31,13 @@ public class Room {
         this.name = name;
     }
 
+    public Enemy getLastAttackedEnemy() {
+        return lastAttackedEnemy;
+    }
+
+    public void setLastAttackedEnemy(Enemy enemy) {
+        lastAttackedEnemy = enemy;
+    }
 
     public void setNorth(Room north){
         this.north = north;

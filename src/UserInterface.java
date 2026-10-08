@@ -103,7 +103,7 @@ public class UserInterface {
                     case ENEMY_NOT_FOUND -> System.out.println("There is no enemy here called " + enemyName);
 
                     case ENEMY_HIT -> {
-                        Enemy enemy = adventure.getCurrentRoom().getEnemies().get(0);
+                        Enemy enemy = adventure.getCurrentRoom().getLastAttackedEnemy();
                         Weapon weapon = adventure.getEquipped();
 
                         System.out.println(
@@ -210,7 +210,7 @@ public class UserInterface {
                             System.out.println("you are barely alive");
 
                         } else {
-                            System.out.println("You died");
+                            System.out.println("dead");
                         }
                     }
 
@@ -263,12 +263,15 @@ public class UserInterface {
                             case ENEMY_NOT_FOUND -> System.out.println("There is no enemy here.");
 
                             case ENEMY_HIT -> {
-                                Enemy enemy = adventure.getCurrentRoom().getEnemies().get(0);
+                                Enemy enemy = adventure.getCurrentRoom().getLastAttackedEnemy();
                                 Weapon weapon = adventure.getEquipped();
 
                                 System.out.println(
-                                        "You hit the " + enemy.getShortName() + " with " + weapon.getLongName() +
-                                                " for " + weapon.getDamage() + " damage. It has " + enemy.getHealth() + " health left."
+                                        "You hit the " + enemy.getShortName() +
+                                        " with " + weapon.getLongName() +
+                                        " for " + weapon.getDamage() +
+                                        " damage. It has " + enemy.getHealth() +
+                                        " health left."
                                 );
 
                             }
@@ -292,6 +295,7 @@ public class UserInterface {
                 }
             }
             if (adventure.getHealth() <= 0) {
+                System.out.println("You died.");
                 System.out.println("Game over");
                 break;
             }
